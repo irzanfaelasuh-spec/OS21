@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA Desktop OS</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Premium Icons: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- JSZip for Real ZIP Extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Boot Sequence -->
+    <div id="boot-screen" class="screen active">
+        <h1 class="logo-glow">NOVA</h1>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <div class="login-box">
+            <div class="avatar"><i class="ph ph-user"></i></div>
+            <h2>Welcome to NOVA</h2>
+            <input type="text" id="username-input" placeholder="Nama Anda" autocomplete="off">
+            <input type="password" id="password-input" placeholder="Password (opsional)">
+            <button id="login-btn">Login <i class="ph ph-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="screen">
+        <!-- Desktop Icons Area -->
+        <div id="desktop-grid"></div>
+
+        <!-- Window Container (Apps render here) -->
+        <div id="window-container"></div>
+
+        <!-- Taskbar -->
+        <div id="taskbar">
+            <div class="taskbar-left">
+                <button id="start-btn" class="taskbar-icon"><i class="ph-fill ph-squares-four"></i></button>
+                <div class="taskbar-separator"></div>
+                <div id="open-apps-list"></div>
+            </div>
+            <div class="taskbar-right">
+                <div class="status-icon"><i class="ph ph-wifi-high"></i></div>
+                <div class="status-icon"><i class="ph ph-battery-full"></i></div>
+                <div id="clock" class="clock">10:51 PM</div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div id="start-menu" class="hidden">
+            <div class="start-search">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search apps, files...">
+            </div>
+            <div class="app-grid">
+                <div class="app-item" onclick="nova.openApp('filemanager')">
+                    <i class="ph-fill ph-folder-notch"></i>
+                    <span>Files</span>
+                </div>
+                <div class="app-item" onclick="nova.openApp('terminal')">
+                    <i class="ph-fill ph-terminal"></i>
+                    <span>Terminal</span>
+                </div>
+                <div class="app-item" onclick="nova.openApp('settings')">
+                    <i class="ph-fill ph-gear"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Context Menu -->
+        <div id="context-menu" class="hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
